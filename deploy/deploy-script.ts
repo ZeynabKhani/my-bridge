@@ -1,11 +1,11 @@
-import { ethers } from "hardhat";
+import hre from "hardhat";
 
 async function main() {
   
-  const TokenBsc = await ethers.getContractFactory("TokenBsc");
-  const TokenEth = await her.ethers.getContractFactory("TokenEth");
-  const BridgeBsc = await her.ethers.getContractFactory("BridgeBsc");
-  const BridgeEth = await her.ethers.getContractFactory("BridgeEth");
+  const TokenBsc = await hre.ethers.getContractFactory("TokenBsc");
+  const TokenEth = await hre.ethers.getContractFactory("TokenEth");
+  const BridgeBsc = await hre.ethers.getContractFactory("BridgeBsc");
+  const BridgeEth = await hre.ethers.getContractFactory("BridgeEth");
 
   const tokenBsc = await TokenBsc.deploy("Token on Bsc", "TBSC");
   const tokenEth = await TokenEth.deploy("Token on Eth", "TETH");
@@ -17,8 +17,11 @@ async function main() {
   console.log("Token Bsc deployed to:", tokenBsc.address);
   console.log("Token Eth deployed to:", tokenEth.address);
 
-  const bridgeBsc = await BridgeEth.deploy(tokenBsc.address);
+  const bridgeBsc = await BridgeBsc.deploy(tokenBsc.address);
   const bridgeEth = await BridgeEth.deploy(tokenEth.address);
+
+  console.log("Bridge Bsc deployed to:", bridgeBsc.address);
+  console.log("Bridge Eth deployed to:", bridgeEth.address);
 
   // if(network === 'rinkeby') {
   //   await deployer.deploy(TokenEth);

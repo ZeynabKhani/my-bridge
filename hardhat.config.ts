@@ -1,4 +1,6 @@
-require("@nomiclabs/hardhat-waffle");
+import "@nomiclabs/hardhat-waffle";
+import "@nomiclabs/hardhat-ethers";
+import { HardhatUserConfig } from "hardhat/config";
 import dotenv from "dotenv";
 
 dotenv.config();

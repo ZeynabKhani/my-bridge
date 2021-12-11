@@ -1,9 +1,10 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 import '@openzeppelin/contracts/token/ERC20/ERC20.sol';
 
 // ToDo: should it be like this or we should just mint all tokens at once and lock and unlock it?
-contract TokenBsc is ERC20 {
+contract TokenEth is ERC20 {
   address public admin;
 
   constructor(string memory name, string memory symbol) ERC20(name, symbol) {
